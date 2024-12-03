@@ -3,6 +3,17 @@
 <head>
 <title>index</title>
 <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: Linen;
+            text-align: center;
+        }
+        #clock {
+            font-size: 20px;
+            color: white;
+            font-family: 'Georgia', serif;
+            margin-top: 20px;
+        }
 body {
   background-image: url('nanaa.jpg');
   background-size: cover;
@@ -23,6 +34,48 @@ a:hover {
 </style>
 </head>
 <body>
+<body>
+
+    <div id="clock"></div>
+
+   
+
+    <script>
+        function updateClock() {
+            var today = new Date();
+            
+            // Get the current date components
+            var dayOfWeek = today.toLocaleString('en-us', { weekday: 'long' });
+            var day = today.getDate();
+            var month = today.getMonth() + 1; // Month is 0-based
+            var year = today.getFullYear();
+            
+            // Get the current time components
+            var hours = today.getHours();
+            var minutes = today.getMinutes();
+            var seconds = today.getSeconds();
+
+            // Add leading zeros to minutes and seconds if needed
+            minutes = (minutes < 10) ? '0' + minutes : minutes;
+            seconds = (seconds < 10) ? '0' + seconds : seconds;
+
+            // Format the time and date
+            var timeString = hours + ':' + minutes + ':' + seconds;
+            var dateString = dayOfWeek + ', ' + day + '/' + month + '/' + year;
+
+            // Display the date and time in the HTML element
+            document.getElementById('clock').innerHTML = dateString + ' | ' + timeString;
+        }
+
+        // Update the clock every second
+        setInterval(updateClock, 1000);
+
+        // Initialize the clock immediately
+        updateClock();
+    </script>
+
+</body>
+</html>
 
 <center>
   <h1>HI, WELCOME TO <br>✧.*FARZANA'S PAGE ✧.*</br></h1>
